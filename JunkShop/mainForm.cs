@@ -96,7 +96,7 @@ namespace JunkShop
 
             try
             {
-                numericUpDownPrice.Value = JunkShopWorker.GetSelectedWeaponsData.Price;
+                numericUpDownPrice.Value = JunkShopWorker.GetSelectedWeaponsData.Price * 10;
                 comboBoxItem1.SelectedIndex = JunkShopWorker.GetSelectedWeaponsData.Item1;
                 numericUpDownQua1.Value = JunkShopWorker.GetSelectedWeaponsData.Quantity1;
                 comboBoxItem2.SelectedIndex = JunkShopWorker.GetSelectedWeaponsData.Item2;

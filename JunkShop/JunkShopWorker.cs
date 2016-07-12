@@ -42,7 +42,7 @@ namespace JunkShop
             switch (index)
             {
                 case 0:
-                    Kernel[OffsetToWeaponsSelected + 3] = Convert.ToByte(variable); //Price
+                    Kernel[OffsetToWeaponsSelected + 3] = (byte)(Convert.ToInt32(variable) / 10); //Price
                     return;
                 case 1:
                     Kernel[OffsetToWeaponsSelected + 4] = Convert.ToByte(variable); //Item 1

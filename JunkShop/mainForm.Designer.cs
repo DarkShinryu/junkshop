@@ -97,7 +97,7 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -1148,17 +1148,22 @@
             // numericUpDownPrice
             // 
             this.numericUpDownPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownPrice.Location = new System.Drawing.Point(98, 31);
+            this.numericUpDownPrice.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownPrice.Location = new System.Drawing.Point(95, 31);
             this.numericUpDownPrice.Maximum = new decimal(new int[] {
-            255,
+            2550,
             0,
             0,
             0});
             this.numericUpDownPrice.Name = "numericUpDownPrice";
-            this.numericUpDownPrice.Size = new System.Drawing.Size(45, 25);
+            this.numericUpDownPrice.Size = new System.Drawing.Size(51, 25);
             this.numericUpDownPrice.TabIndex = 1;
             this.numericUpDownPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownPrice, "This value is multiplied by 10 in game.");
+            this.toolTip1.SetToolTip(this.numericUpDownPrice, "Only use increments of 10");
             // 
             // labelPrice
             // 
@@ -1231,7 +1236,7 @@
             this.MaximizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "JunkShop 1.0a";
+            this.Text = "JunkShop 1.0b";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

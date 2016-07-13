@@ -28,20 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonClose = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Image = global::JunkShop.Properties.Resources.close;
-            this.buttonClose.Location = new System.Drawing.Point(224, 5);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(30, 25);
-            this.buttonClose.TabIndex = 0;
-            this.buttonClose.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -52,6 +41,7 @@
             this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "by alexfilth";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -62,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(168, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "Junk Shop 1.0b";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AboutBox
             // 
@@ -70,26 +61,23 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImage = global::JunkShop.Properties.Resources.revolver;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(257, 234);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonClose);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AboutBox";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Click += new System.EventHandler(this.AboutBox_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

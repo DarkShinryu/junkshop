@@ -6,7 +6,9 @@ namespace JunkShop
     class JunkShopWorker
     {
         #region Declarations
+
         public static byte[] Kernel;
+        public static byte[] CheckKernel;
 
         public static int WeaponsDataOffset = -1;
         public static int OffsetToWeaponsSelected = -1;

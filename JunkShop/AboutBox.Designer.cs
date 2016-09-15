@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::JunkShop.Properties.Resources.revolver;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(257, 234);
@@ -69,9 +69,11 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AboutBox";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Click += new System.EventHandler(this.AboutBox_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AboutBox_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

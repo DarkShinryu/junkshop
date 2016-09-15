@@ -31,5 +31,13 @@ namespace JunkShop
         {
             this.Close();
         }
+
+        private void AboutBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

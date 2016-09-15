@@ -21,6 +21,8 @@ namespace JunkShop
             InitializeComponent();
             
             saveToolStripMenuItem.Enabled = false;
+            panelObjects.Enabled = false;
+            listBoxWeapons.Enabled = false;
 
             #region Event Handlers
 
@@ -33,6 +35,8 @@ namespace JunkShop
             numericUpDownQua2.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(4, numericUpDownQua2.Text);
             numericUpDownQua3.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(6, numericUpDownQua3.Text);
             numericUpDownQua4.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(8, numericUpDownQua4.Text);
+
+            FormClosing += new FormClosingEventHandler(Form1_FormClosing);
 
             #endregion
         }
@@ -71,6 +75,9 @@ namespace JunkShop
 
             if (!_openSaveException)
             {
+                panelObjects.Enabled = true;
+                listBoxWeapons.Enabled = true;
+
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
 
                 this.KeyUp += new KeyEventHandler(mainForm_KeyUp);
@@ -91,7 +98,7 @@ namespace JunkShop
                 toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " loaded";
                 statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
                 toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
-                await Task.Delay(3000);
+                await Task.Delay(4000);
                 statusStrip1.BackColor = Color.Gray;
                 toolStripStatusLabelStatus.BackColor = Color.Gray;
                 toolStripStatusLabelStatus.Text = "Ready";
@@ -114,20 +121,20 @@ namespace JunkShop
                 catch (Exception)
                 {
                     MessageBox.Show
-                        (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)), "Error Saving File",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)), 
+                        "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
                     _openSaveException = true;
                 }
             }
-            if (!_openSaveException)
+            if (_openSaveException == false)
             {
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
                 saveToolStripMenuItem.Enabled = false;
                 toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " saved successfully";;
                 statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
                 toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
-                await Task.Delay(3000);
+                await Task.Delay(4000);
                 statusStrip1.BackColor = Color.Gray;
                 toolStripStatusLabelStatus.BackColor = Color.Gray;
                 toolStripStatusLabelStatus.Text = "Ready";
@@ -138,6 +145,39 @@ namespace JunkShop
         #endregion
 
         #region Close Application
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (saveToolStripMenuItem.Enabled)
+            {
+                DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close", 
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show
+                            (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)), 
+                            "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                        _openSaveException = true;
+                    }
+
+                    if (_openSaveException == true)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+
+                else if (dialogResult == DialogResult.Cancel)
+                    e.Cancel = true;
+            }
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,6 +220,7 @@ namespace JunkShop
         }
 
         #endregion
+
 
         private void listBoxWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {

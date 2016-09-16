@@ -26,7 +26,7 @@ namespace JunkShop
 
             #region Event Handlers
 
-            numericUpDownPrice.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(0, numericUpDownPrice.Text);
+            numericUpDownPrice.ValueChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(0, numericUpDownPrice.Value);
             comboBoxItem1.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(1, comboBoxItem1.SelectedIndex);
             comboBoxItem2.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(3, comboBoxItem2.SelectedIndex);
             comboBoxItem3.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(5, comboBoxItem3.SelectedIndex);
@@ -81,8 +81,7 @@ namespace JunkShop
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
 
                 this.KeyUp += new KeyEventHandler(mainForm_KeyUp);
-                this.MouseUp += new MouseEventHandler(mainForm_MouseUp);
-                this.numericUpDownPrice.TextChanged += new EventHandler(mainForm_Objects);
+                this.numericUpDownPrice.ValueChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua1.TextChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua2.TextChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua3.TextChanged += new EventHandler(mainForm_Objects);
@@ -209,18 +208,12 @@ namespace JunkShop
             CheckSaveButton();
         }
 
-        private void mainForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            CheckSaveButton();
-        }
-
         private void mainForm_Objects(object sender, EventArgs e)
         {
             CheckSaveButton();
         }
 
         #endregion
-
 
         private void listBoxWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {

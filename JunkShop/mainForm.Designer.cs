@@ -106,14 +106,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(149, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -121,20 +121,20 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Image = global::JunkShop.Properties.Resources.close;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -403,6 +403,7 @@
             // 
             // numericUpDownPrice
             // 
+            this.numericUpDownPrice.BackColor = System.Drawing.SystemColors.ControlLight;
             this.numericUpDownPrice.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownPrice.Increment = new decimal(new int[] {
             10,
@@ -416,10 +417,11 @@
             0,
             0});
             this.numericUpDownPrice.Name = "numericUpDownPrice";
+            this.numericUpDownPrice.ReadOnly = true;
             this.numericUpDownPrice.Size = new System.Drawing.Size(51, 25);
             this.numericUpDownPrice.TabIndex = 1;
             this.numericUpDownPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownPrice, "Only use increments of 10");
+            this.toolTip1.SetToolTip(this.numericUpDownPrice, "Only multiple of 10s are available, use the arrows to edit the value.");
             // 
             // labelItem4
             // 
@@ -436,16 +438,11 @@
             // 
             this.numericUpDownQua1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua1.Location = new System.Drawing.Point(187, 101);
-            this.numericUpDownQua1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
             this.numericUpDownQua1.Name = "numericUpDownQua1";
             this.numericUpDownQua1.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua1.TabIndex = 3;
             this.numericUpDownQua1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownQua1, "Quantity of the 1st item");
+            this.toolTip1.SetToolTip(this.numericUpDownQua1, "Needed quantity of the 1st item");
             // 
             // comboBoxItem3
             // 
@@ -661,16 +658,11 @@
             // 
             this.numericUpDownQua2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua2.Location = new System.Drawing.Point(187, 160);
-            this.numericUpDownQua2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
             this.numericUpDownQua2.Name = "numericUpDownQua2";
             this.numericUpDownQua2.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua2.TabIndex = 5;
             this.numericUpDownQua2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownQua2, "Quantity of the 2nd item");
+            this.toolTip1.SetToolTip(this.numericUpDownQua2, "Needed quantity of the 2nd item");
             // 
             // labelItem3
             // 
@@ -687,16 +679,11 @@
             // 
             this.numericUpDownQua3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua3.Location = new System.Drawing.Point(187, 221);
-            this.numericUpDownQua3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
             this.numericUpDownQua3.Name = "numericUpDownQua3";
             this.numericUpDownQua3.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua3.TabIndex = 7;
             this.numericUpDownQua3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownQua3, "Quantity of the 3rd item");
+            this.toolTip1.SetToolTip(this.numericUpDownQua3, "Needed quantity of the 3rd item");
             // 
             // comboBoxItem2
             // 
@@ -912,16 +899,11 @@
             // 
             this.numericUpDownQua4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua4.Location = new System.Drawing.Point(187, 283);
-            this.numericUpDownQua4.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
             this.numericUpDownQua4.Name = "numericUpDownQua4";
             this.numericUpDownQua4.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua4.TabIndex = 9;
             this.numericUpDownQua4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.numericUpDownQua4, "Quantity of the 4th item");
+            this.toolTip1.SetToolTip(this.numericUpDownQua4, "Needed quantity of the 4th item");
             // 
             // labelItem2
             // 

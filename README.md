@@ -1,7 +1,7 @@
 # JunkShop
 JunkShop is a C# editor for Final Fantasy VIII mwepon.bin file.
 
-<img src="https://cloud.githubusercontent.com/assets/5892410/18586663/fd946e8c-7c1d-11e6-8c35-20b50382d3dc.png"></img> 
+<img src="https://cloud.githubusercontent.com/assets/5892410/18587447/6644466a-7c22-11e6-9ca9-61b83ed162e5.png"></img> 
 
 ## Requirements
 - .NET Framework 4.5.2

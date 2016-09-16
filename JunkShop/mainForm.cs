@@ -20,7 +20,7 @@ namespace JunkShop
         {
             InitializeComponent();
             
-            saveToolStripMenuItem.Enabled = false;
+            saveToolStripButton.Enabled = false;
             panelObjects.Enabled = false;
             listBoxWeapons.Enabled = false;
 
@@ -44,6 +44,11 @@ namespace JunkShop
         #region Open File
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void openToolStripButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Open FF8 mwepon.bin";
@@ -111,6 +116,11 @@ namespace JunkShop
 
         private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void saveToolStripButton_Click(object sender, EventArgs e)
+        {
             if (!(string.IsNullOrEmpty(_existingFilename)) && JunkShopWorker.Kernel != null)
             {
                 try
@@ -120,7 +130,7 @@ namespace JunkShop
                 catch (Exception)
                 {
                     MessageBox.Show
-                        (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)), 
+                        (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)),
                         "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
                     _openSaveException = true;
@@ -129,8 +139,8 @@ namespace JunkShop
             if (_openSaveException == false)
             {
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
-                saveToolStripMenuItem.Enabled = false;
-                toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " saved successfully";;
+                saveToolStripButton.Enabled = false;
+                toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " saved successfully"; ;
                 statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
                 toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
                 await Task.Delay(4000);
@@ -147,7 +157,7 @@ namespace JunkShop
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (saveToolStripMenuItem.Enabled)
+            if (saveToolStripButton.Enabled)
             {
                 DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close", 
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
@@ -186,7 +196,13 @@ namespace JunkShop
         #endregion
 
         #region About Dialog
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
         }
@@ -198,9 +214,13 @@ namespace JunkShop
         private void CheckSaveButton()
         {
             if (JunkShopWorker.Kernel.Length == JunkShopWorker.CheckKernel.Length && memcmp(JunkShopWorker.Kernel, JunkShopWorker.CheckKernel, JunkShopWorker.Kernel.Length) == 0)
-                saveToolStripMenuItem.Enabled = false;
+            {
+                saveToolStripButton.Enabled = false;
+            }
             else
-                saveToolStripMenuItem.Enabled = true;
+            {
+                saveToolStripButton.Enabled = true;
+            }
         }
 
         private void mainForm_KeyUp(object sender, KeyEventArgs e)
@@ -214,6 +234,7 @@ namespace JunkShop
         }
 
         #endregion
+
 
         private void listBoxWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -104,6 +104,7 @@
     <None Include="Resources\revolver.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Information-icon.png" />
     <Content Include="revolver.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

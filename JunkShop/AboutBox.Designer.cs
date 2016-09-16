@@ -71,7 +71,7 @@
             this.Name = "AboutBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Click += new System.EventHandler(this.AboutBox_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AboutBox_KeyDown);
             this.ResumeLayout(false);

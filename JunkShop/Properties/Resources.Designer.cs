@@ -73,6 +73,16 @@ namespace JunkShop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Information_icon {
+            get {
+                object obj = ResourceManager.GetObject("Information_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap revolver {
             get {
                 object obj = ResourceManager.GetObject("revolver", resourceCulture);

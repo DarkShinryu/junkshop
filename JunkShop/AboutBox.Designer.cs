@@ -49,9 +49,9 @@
             this.label1.Font = new System.Drawing.Font("SF Slapstick Comic", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(45, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 30);
+            this.label1.Size = new System.Drawing.Size(169, 30);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Junk Shop 1.0c";
+            this.label1.Text = "Junk Shop 1.0d";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AboutBox

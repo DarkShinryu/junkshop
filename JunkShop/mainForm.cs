@@ -43,11 +43,6 @@ namespace JunkShop
 
         #region Open File
 
-        private async void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void openToolStripButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -97,6 +92,7 @@ namespace JunkShop
                 this.comboBoxItem4.SelectedIndexChanged += new EventHandler(mainForm_Objects);
 
                 listBoxWeapons.SelectedIndex = 0;
+                listBoxWeapons.Items[listBoxWeapons.SelectedIndex] = listBoxWeapons.SelectedItem; //used to refresh, useful if opening files more than once
 
                 toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " loaded successfully";
                 toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " loaded";
@@ -113,11 +109,6 @@ namespace JunkShop
         #endregion
 
         #region Save File
-
-        private async void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private async void saveToolStripButton_Click(object sender, EventArgs e)
         {
@@ -159,7 +150,7 @@ namespace JunkShop
         {
             if (saveToolStripButton.Enabled)
             {
-                DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close", 
+                DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 if (dialogResult == DialogResult.Yes)
@@ -171,7 +162,7 @@ namespace JunkShop
                     catch (Exception)
                     {
                         MessageBox.Show
-                            (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)), 
+                            (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)),
                             "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
                         _openSaveException = true;
@@ -188,19 +179,9 @@ namespace JunkShop
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         #endregion
 
         #region About Dialog
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new AboutBox().ShowDialog();
-        }
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {

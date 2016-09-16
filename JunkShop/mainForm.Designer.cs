@@ -1296,7 +1296,7 @@
             this.MaximizeBox = false;
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "JunkShop 1.0c";
+            this.Text = "JunkShop 1.0d";
             this.panel1.ResumeLayout(false);
             this.panelObjects.ResumeLayout(false);
             this.panelObjects.PerformLayout();

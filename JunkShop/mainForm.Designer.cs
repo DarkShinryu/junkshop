@@ -438,6 +438,11 @@
             // 
             this.numericUpDownQua1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua1.Location = new System.Drawing.Point(187, 101);
+            this.numericUpDownQua1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownQua1.Name = "numericUpDownQua1";
             this.numericUpDownQua1.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua1.TabIndex = 3;
@@ -658,6 +663,11 @@
             // 
             this.numericUpDownQua2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua2.Location = new System.Drawing.Point(187, 160);
+            this.numericUpDownQua2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownQua2.Name = "numericUpDownQua2";
             this.numericUpDownQua2.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua2.TabIndex = 5;
@@ -679,6 +689,11 @@
             // 
             this.numericUpDownQua3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua3.Location = new System.Drawing.Point(187, 221);
+            this.numericUpDownQua3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownQua3.Name = "numericUpDownQua3";
             this.numericUpDownQua3.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua3.TabIndex = 7;
@@ -899,6 +914,11 @@
             // 
             this.numericUpDownQua4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQua4.Location = new System.Drawing.Point(187, 283);
+            this.numericUpDownQua4.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownQua4.Name = "numericUpDownQua4";
             this.numericUpDownQua4.Size = new System.Drawing.Size(45, 25);
             this.numericUpDownQua4.TabIndex = 9;

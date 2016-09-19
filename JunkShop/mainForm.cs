@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,14 +23,14 @@ namespace JunkShop
         public mainForm()
         {
             InitializeComponent();
-            
+
             saveToolStripButton.Enabled = false;
             panelObjects.Enabled = false;
             listBoxWeapons.Enabled = false;
 
             #region Event Handlers
 
-            numericUpDownPrice.ValueChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(0, numericUpDownPrice.Value);
+            numericUpDownCost.ValueChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(0, numericUpDownCost.Value);
             comboBoxItem1.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(1, comboBoxItem1.SelectedIndex);
             comboBoxItem2.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(3, comboBoxItem2.SelectedIndex);
             comboBoxItem3.SelectedIndexChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(5, comboBoxItem3.SelectedIndex);
@@ -35,8 +39,6 @@ namespace JunkShop
             numericUpDownQua2.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(4, numericUpDownQua2.Text);
             numericUpDownQua3.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(6, numericUpDownQua3.Text);
             numericUpDownQua4.TextChanged += (sender, args) => JunkShopWorker.UpdateVariable_Weapons(8, numericUpDownQua4.Text);
-
-            FormClosing += new FormClosingEventHandler(Form1_FormClosing);
 
             #endregion
         }
@@ -81,7 +83,7 @@ namespace JunkShop
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
 
                 this.KeyUp += new KeyEventHandler(mainForm_KeyUp);
-                this.numericUpDownPrice.ValueChanged += new EventHandler(mainForm_Objects);
+                this.numericUpDownCost.ValueChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua1.TextChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua2.TextChanged += new EventHandler(mainForm_Objects);
                 this.numericUpDownQua3.TextChanged += new EventHandler(mainForm_Objects);
@@ -94,14 +96,64 @@ namespace JunkShop
                 listBoxWeapons.SelectedIndex = 0;
                 listBoxWeapons.Items[listBoxWeapons.SelectedIndex] = listBoxWeapons.SelectedItem; //used to refresh, useful if opening files more than once
 
-                toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " loaded successfully";
-                toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " loaded";
-                statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
-                toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
-                await Task.Delay(4000);
-                statusStrip1.BackColor = Color.Gray;
-                toolStripStatusLabelStatus.BackColor = Color.Gray;
-                toolStripStatusLabelStatus.Text = "Ready";
+                string language = comboBoxLang.GetItemText(comboBoxLang.SelectedItem);
+                switch (language)
+                {
+                    case "English":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " loaded successfully";
+                        toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " loaded";
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Ready";
+                        break;
+
+                    case "French":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " chargé avec succès";
+                        toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " chargé";
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Prêt";
+                        break;
+
+                    case "German":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " erfolgreich geladen";
+                        toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " geladen";
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Bereit";
+                        break;
+
+                    case "Italian":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " caricato con successo";
+                        toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " caricato";
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Pronto";
+                        break;
+
+                    case "Spanish":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " cargado correctamente";
+                        toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " cargado";
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Listo";
+                        break;
+                }
             }
             _openSaveException = false;
         }
@@ -131,52 +183,250 @@ namespace JunkShop
             {
                 JunkShopWorker.CheckKernel = File.ReadAllBytes(_existingFilename);
                 saveToolStripButton.Enabled = false;
-                toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " saved successfully"; ;
-                statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
-                toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
-                await Task.Delay(4000);
-                statusStrip1.BackColor = Color.Gray;
-                toolStripStatusLabelStatus.BackColor = Color.Gray;
-                toolStripStatusLabelStatus.Text = "Ready";
+
+                string language = comboBoxLang.GetItemText(comboBoxLang.SelectedItem);
+                switch (language)
+                {
+                    case "English":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " saved successfully"; ;
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Ready";
+                        break;
+
+                    case "French":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " enregistré avec succès"; ;
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Prêt";
+                        break;
+
+                    case "German":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " erfolgreich gespeichert"; ;
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Bereit";
+                        break;
+
+                    case "Italian":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " salvato con successo"; ;
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Pronto";
+                        break;
+
+                    case "Spanish":
+                        toolStripStatusLabelStatus.Text = Path.GetFileName(_existingFilename) + " guardado exitosamente"; ;
+                        statusStrip1.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        toolStripStatusLabelStatus.BackColor = Color.FromArgb(255, 0, 150, 200);
+                        await Task.Delay(4000);
+                        statusStrip1.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.BackColor = Color.Gray;
+                        toolStripStatusLabelStatus.Text = "Listo";
+                        break;
+                }
             }
             _openSaveException = false;
         }
 
         #endregion
 
-        #region Close Application
+        #region Closing Application (Ask save message and save current language to registry)
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (saveToolStripButton.Enabled)
             {
-                DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close",
-                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-
-                if (dialogResult == DialogResult.Yes)
+                string language = comboBoxLang.GetItemText(comboBoxLang.SelectedItem);
+                
+                switch (language)
                 {
-                    try
-                    {
-                        File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show
-                            (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)),
-                            "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    case "English":
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Save changes to " + Path.GetFileName(_existingFilename) + " before closing?", "Close",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
-                        _openSaveException = true;
-                    }
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show
+                                        (String.Format("I cannot save the file {0}, maybe it's locked by another software?", Path.GetFileName(_existingFilename)),
+                                        "Error saving file", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
-                    if (_openSaveException == true)
-                    {
-                        e.Cancel = true;
-                    }
+                                    _openSaveException = true;
+                                }
+
+                                if (_openSaveException == true)
+                                {
+                                    e.Cancel = true;
+                                }
+                            }
+
+                            else if (dialogResult == DialogResult.Cancel)
+                                e.Cancel = true;
+                            _openSaveException = false;
+
+                            break;
+                        }
+
+
+                    case "French":
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Enregistrer les modifications à " + Path.GetFileName(_existingFilename) + " avant de clôturer?", "Fermer",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show
+                                        (String.Format("Je ne peux pas enregistrer le fichier {0}, peut-être il est verrouillé par un autre logiciel?", Path.GetFileName(_existingFilename)),
+                                        "Erreur d'enregistrement de fichier", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                                    _openSaveException = true;
+                                }
+
+                                if (_openSaveException == true)
+                                {
+                                    e.Cancel = true;
+                                }
+                            }
+
+                            else if (dialogResult == DialogResult.Cancel)
+                                e.Cancel = true;
+                            _openSaveException = false;
+
+                            break;
+                        }
+
+
+                    case "German":
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Speichern Sie die Änderungen in " + Path.GetFileName(_existingFilename) + " vor dem Schließen?", "Schließen",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show
+                                        (String.Format("Ich kann nicht speichern Sie die Datei {0}, vielleicht ist es durch eine andere Software gesperrt?", Path.GetFileName(_existingFilename)),
+                                        "Fehler beim Speichern der Datei", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                                    _openSaveException = true;
+                                }
+
+                                if (_openSaveException == true)
+                                {
+                                    e.Cancel = true;
+                                }
+                            }
+
+                            else if (dialogResult == DialogResult.Cancel)
+                                e.Cancel = true;
+                            _openSaveException = false;
+
+                            break;
+                        }
+
+
+                    case "Italian":
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Vuoi salvare il file " + Path.GetFileName(_existingFilename) + " prima di chiudere?", "Chiudi",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show
+                                        (String.Format("Non riesco a salvare il file {0}, forse l'accesso è bloccato da un altro programma?", Path.GetFileName(_existingFilename)),
+                                        "Errore durante il salvataggio del file", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                                    _openSaveException = true;
+                                }
+
+                                if (_openSaveException == true)
+                                {
+                                    e.Cancel = true;
+                                }
+                            }
+
+                            else if (dialogResult == DialogResult.Cancel)
+                                e.Cancel = true;
+                            _openSaveException = false;
+
+                            break;
+                        }
+
+
+                    case "Spanish":
+                        {
+                            DialogResult dialogResult = MessageBox.Show("¿Quieres guardar el archivo " + Path.GetFileName(_existingFilename) + " antes de cerrar?", "Cerca",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    File.WriteAllBytes(_existingFilename, JunkShopWorker.Kernel);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show
+                                        (String.Format("No puedo guardar el archivo {0}, tal vez el acceso está bloqueado por otro programa?", Path.GetFileName(_existingFilename)),
+                                        "Guardar el archivo de error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+                                    _openSaveException = true;
+                                }
+
+                                if (_openSaveException == true)
+                                {
+                                    e.Cancel = true;
+                                }
+                            }
+
+                            else if (dialogResult == DialogResult.Cancel)
+                                e.Cancel = true;
+                            _openSaveException = false;
+
+                            break;
+                        }
                 }
-
-                else if (dialogResult == DialogResult.Cancel)
-                    e.Cancel = true;
             }
+
+            //Save current language to registry
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\JunkShop");
+            key.SetValue("Language", comboBoxLang.SelectedItem.ToString());
         }
 
         #endregion
@@ -216,6 +466,249 @@ namespace JunkShop
 
         #endregion
 
+        #region Translations
+
+        private void applyResources(ComponentResourceManager resources, Control.ControlCollection ctls)
+        {
+            foreach (Control ctl in ctls)
+            {
+                resources.ApplyResources(ctl, ctl.Name);
+                applyResources(resources, ctl.Controls);
+            }
+        }
+
+        private void comboBoxLang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string language = comboBoxLang.GetItemText(comboBoxLang.SelectedItem);
+
+            switch (language)
+            {
+                case "English":
+                    {
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+                        ComponentResourceManager resourcesEn = new ComponentResourceManager(typeof(mainForm));
+                        resourcesEn.ApplyResources(this, "$this");
+                        applyResources(resourcesEn, this.Controls);
+                        openToolStripButton.Text = "Open...";
+                        saveToolStripButton.Text = "Save";
+                        helpToolStripButton.Text = "About";
+                        toolStripStatusLabelStatus.Text = "Ready";
+                        if (_existingFilename != null)
+                            toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " loaded";
+                        else
+                            toolStripStatusLabelFile.Text = "No file is loaded";
+
+                        listBoxWeapons.Items.Clear();
+                        string[] weaponListEn = Properties.Resources.WeaponsListEn.Split('\n');
+                        foreach (var line in weaponListEn)
+                        {
+                            listBoxWeapons.Items.Add(line);
+                        }
+
+                        comboBoxItem1.Items.Clear();
+                        comboBoxItem2.Items.Clear();
+                        comboBoxItem3.Items.Clear();
+                        comboBoxItem4.Items.Clear();
+                        string[] itemsListEn = Properties.Resources.ItemsListEn.Split('\n');
+                        foreach (var line in itemsListEn)
+                        {
+                            comboBoxItem1.Items.Add(line);
+                            comboBoxItem2.Items.Add(line);
+                            comboBoxItem3.Items.Add(line);
+                            comboBoxItem4.Items.Add(line);
+                        }
+
+                        break;
+                    }
+
+
+                case "French":
+                    {
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("fr");
+                        ComponentResourceManager resourcesFr = new ComponentResourceManager(typeof(mainForm));
+                        resourcesFr.ApplyResources(this, "$this");
+                        applyResources(resourcesFr, this.Controls);
+                        openToolStripButton.Text = "Ouvrir...";
+                        saveToolStripButton.Text = "Enregistrer";
+                        helpToolStripButton.Text = "Informations";
+                        toolStripStatusLabelStatus.Text = "Prêt";
+                        if (_existingFilename != null)
+                            toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " chargé";
+                        else
+                            toolStripStatusLabelFile.Text = "Aucun fichier est chargé";
+
+                        listBoxWeapons.Items.Clear();
+                        string[] weaponListFr = Properties.Resources.WeaponsListFr.Split('\n');
+                        foreach (var line in weaponListFr)
+                        {
+                            listBoxWeapons.Items.Add(line);
+                        }
+
+                        comboBoxItem1.Items.Clear();
+                        comboBoxItem2.Items.Clear();
+                        comboBoxItem3.Items.Clear();
+                        comboBoxItem4.Items.Clear();
+                        string[] itemsListFr = Properties.Resources.ItemsListFr.Split('\n');
+                        foreach (var line in itemsListFr)
+                        {
+                            comboBoxItem1.Items.Add(line);
+                            comboBoxItem2.Items.Add(line);
+                            comboBoxItem3.Items.Add(line);
+                            comboBoxItem4.Items.Add(line);
+                        }
+
+                        break;
+                    }
+
+                case "German":
+                    {
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de");
+                        ComponentResourceManager resourcesDe = new ComponentResourceManager(typeof(mainForm));
+                        resourcesDe.ApplyResources(this, "$this");
+                        applyResources(resourcesDe, this.Controls);
+                        openToolStripButton.Text = "Öffnen...";
+                        saveToolStripButton.Text = "Speichern";
+                        helpToolStripButton.Text = "Informationen";
+                        toolStripStatusLabelStatus.Text = "Bereit";
+                        if (_existingFilename != null)
+                            toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " geladen";
+                        else
+                            toolStripStatusLabelFile.Text = "Keine datei geladen wird";
+
+                        listBoxWeapons.Items.Clear();
+                        string[] weaponListDe = Properties.Resources.WeaponsListDe.Split('\n');
+                        foreach (var line in weaponListDe)
+                        {
+                            listBoxWeapons.Items.Add(line);
+                        }
+
+                        comboBoxItem1.Items.Clear();
+                        comboBoxItem2.Items.Clear();
+                        comboBoxItem3.Items.Clear();
+                        comboBoxItem4.Items.Clear();
+                        string[] itemsListDe = Properties.Resources.ItemsListDe.Split('\n');
+                        foreach (var line in itemsListDe)
+                        {
+                            comboBoxItem1.Items.Add(line);
+                            comboBoxItem2.Items.Add(line);
+                            comboBoxItem3.Items.Add(line);
+                            comboBoxItem4.Items.Add(line);
+                        }
+
+                        break;
+                    }
+
+                case "Italian":
+                    {
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("it");
+                        ComponentResourceManager resourcesIt = new ComponentResourceManager(typeof(mainForm));
+                        resourcesIt.ApplyResources(this, "$this");
+                        applyResources(resourcesIt, this.Controls);
+                        openToolStripButton.Text = "Apri...";
+                        saveToolStripButton.Text = "Salva";
+                        helpToolStripButton.Text = "Informazioni";
+                        toolStripStatusLabelStatus.Text = "Pronto";
+                        if (_existingFilename != null)
+                            toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " caricato";
+                        else
+                            toolStripStatusLabelFile.Text = "Nessun file è stato caricato";
+
+                        listBoxWeapons.Items.Clear();
+                        string[] weaponListIt = Properties.Resources.WeaponsListIt.Split('\n');
+                        foreach (var line in weaponListIt)
+                        {
+                            listBoxWeapons.Items.Add(line);
+                        }
+
+                        comboBoxItem1.Items.Clear();
+                        comboBoxItem2.Items.Clear();
+                        comboBoxItem3.Items.Clear();
+                        comboBoxItem4.Items.Clear();
+                        string[] itemsListIt = Properties.Resources.ItemsListIt.Split('\n');
+                        foreach (var line in itemsListIt)
+                        {
+                            comboBoxItem1.Items.Add(line);
+                            comboBoxItem2.Items.Add(line);
+                            comboBoxItem3.Items.Add(line);
+                            comboBoxItem4.Items.Add(line);
+                        }
+
+                        break;
+                    }
+
+                case "Spanish":
+                    {
+                        Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es");
+                        ComponentResourceManager resourcesEs = new ComponentResourceManager(typeof(mainForm));
+                        resourcesEs.ApplyResources(this, "$this");
+                        applyResources(resourcesEs, this.Controls);
+                        openToolStripButton.Text = "Abrir...";
+                        saveToolStripButton.Text = "Guardar";
+                        helpToolStripButton.Text = "Informaciones";
+                        toolStripStatusLabelStatus.Text = "Listo";
+                        if (_existingFilename != null)
+                            toolStripStatusLabelFile.Text = Path.GetFileName(_existingFilename) + " cargado";
+                        else
+                            toolStripStatusLabelFile.Text = "Ningún archivo es cargado";
+
+                        listBoxWeapons.Items.Clear();
+                        string[] weaponListEs = Properties.Resources.WeaponsListEs.Split('\n');
+                        foreach (var line in weaponListEs)
+                        {
+                            listBoxWeapons.Items.Add(line);
+                        }
+
+                        comboBoxItem1.Items.Clear();
+                        comboBoxItem2.Items.Clear();
+                        comboBoxItem3.Items.Clear();
+                        comboBoxItem4.Items.Clear();
+                        string[] itemsListEs = Properties.Resources.ItemsListEs.Split('\n');
+                        foreach (var line in itemsListEs)
+                        {
+                            comboBoxItem1.Items.Add(line);
+                            comboBoxItem2.Items.Add(line);
+                            comboBoxItem3.Items.Add(line);
+                            comboBoxItem4.Items.Add(line);
+                        }
+
+                        break;
+                    }
+            }
+            if (_existingFilename != null)
+                listBoxWeapons.SelectedIndex = 0;
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\JunkShop"))
+                {
+                    if (key != null)
+                    {
+                        object savedLanguage = key.GetValue("Language");
+
+
+                        if (savedLanguage != null && ((string)savedLanguage == "English" || (string)savedLanguage == "French" ||
+                            (string)savedLanguage == "German" || (string)savedLanguage == "Italian" || (string)savedLanguage == "Spanish"))
+                        {
+                            comboBoxLang.SelectedItem = savedLanguage;
+                        }
+                        else
+                            comboBoxLang.SelectedItem = "English";
+                    }
+                    else
+                        comboBoxLang.SelectedItem = "English";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        #endregion
+
 
         private void listBoxWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -226,7 +719,7 @@ namespace JunkShop
 
             try
             {
-                numericUpDownPrice.Value = JunkShopWorker.GetSelectedWeaponsData.Price * 10;
+                numericUpDownCost.Value = JunkShopWorker.GetSelectedWeaponsData.Price * 10;
                 comboBoxItem1.SelectedIndex = JunkShopWorker.GetSelectedWeaponsData.Item1;
                 numericUpDownQua1.Value = JunkShopWorker.GetSelectedWeaponsData.Quantity1;
                 comboBoxItem2.SelectedIndex = JunkShopWorker.GetSelectedWeaponsData.Item2;

@@ -81,6 +81,267 @@ namespace JunkShop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -
+        ///Potion
+        ///Potion+
+        ///Hi-Potion
+        ///Hi-Potion+
+        ///X-Potion
+        ///Mega-Potion
+        ///Phoenix Down
+        ///Mega Phoenix
+        ///Elixir
+        ///Megalixir
+        ///Antidote
+        ///Soft
+        ///Eye Drops
+        ///Echo Screen
+        ///Holy Water
+        ///Remedy
+        ///Remedy+
+        ///Hero-Trial
+        ///Hero
+        ///Holy War-Trial
+        ///Holy War
+        ///Shell Stone
+        ///Protect Stone
+        ///Aura Stone
+        ///Death Stone
+        ///Holy Stone
+        ///Flare Stone
+        ///Meteor Stone
+        ///Ultima Stone
+        ///Gysahl Greens
+        ///Phoenix Pinion
+        ///Friendship
+        ///Tent
+        ///Pet House
+        ///Cottage
+        ///G-Potion
+        ///G-Hi-Potion
+        ///G-Mega-Potion
+        ///G-Returner
+        ///Rename Card
+        ///Amnesia Greens
+        ///HP-J Scroll
+        ///Str-J Scroll
+        ///Vit-J [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ItemsListDe {
+            get {
+                return ResourceManager.GetString("ItemsListDe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -
+        ///Potion
+        ///Potion+
+        ///Hi-Potion
+        ///Hi-Potion+
+        ///X-Potion
+        ///Mega-Potion
+        ///Phoenix Down
+        ///Mega Phoenix
+        ///Elixir
+        ///Megalixir
+        ///Antidote
+        ///Soft
+        ///Eye Drops
+        ///Echo Screen
+        ///Holy Water
+        ///Remedy
+        ///Remedy+
+        ///Hero-Trial
+        ///Hero
+        ///Holy War-Trial
+        ///Holy War
+        ///Shell Stone
+        ///Protect Stone
+        ///Aura Stone
+        ///Death Stone
+        ///Holy Stone
+        ///Flare Stone
+        ///Meteor Stone
+        ///Ultima Stone
+        ///Gysahl Greens
+        ///Phoenix Pinion
+        ///Friendship
+        ///Tent
+        ///Pet House
+        ///Cottage
+        ///G-Potion
+        ///G-Hi-Potion
+        ///G-Mega-Potion
+        ///G-Returner
+        ///Rename Card
+        ///Amnesia Greens
+        ///HP-J Scroll
+        ///Str-J Scroll
+        ///Vit-J [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ItemsListEn {
+            get {
+                return ResourceManager.GetString("ItemsListEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -
+        ///Potion
+        ///Potion+
+        ///Hi-Potion
+        ///Hi-Potion+
+        ///X-Potion
+        ///Mega-Potion
+        ///Phoenix Down
+        ///Mega Phoenix
+        ///Elixir
+        ///Megalixir
+        ///Antidote
+        ///Soft
+        ///Eye Drops
+        ///Echo Screen
+        ///Holy Water
+        ///Remedy
+        ///Remedy+
+        ///Hero-Trial
+        ///Hero
+        ///Holy War-Trial
+        ///Holy War
+        ///Shell Stone
+        ///Protect Stone
+        ///Aura Stone
+        ///Death Stone
+        ///Holy Stone
+        ///Flare Stone
+        ///Meteor Stone
+        ///Ultima Stone
+        ///Gysahl Greens
+        ///Phoenix Pinion
+        ///Friendship
+        ///Tent
+        ///Pet House
+        ///Cottage
+        ///G-Potion
+        ///G-Hi-Potion
+        ///G-Mega-Potion
+        ///G-Returner
+        ///Rename Card
+        ///Amnesia Greens
+        ///HP-J Scroll
+        ///Str-J Scroll
+        ///Vit-J [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ItemsListEs {
+            get {
+                return ResourceManager.GetString("ItemsListEs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -
+        ///Potion
+        ///Potion+
+        ///Hypra-Potion
+        ///Maxi potion
+        ///Potion totale
+        ///Méga potion
+        ///MT-Psy
+        ///Maxi MT-Psy
+        ///Elixir
+        ///Mégalixir
+        ///Antidote
+        ///Défijeur
+        ///Lasik
+        ///Bocca
+        ///Eau bénite
+        ///Remède
+        ///Remède +
+        ///1-20-Syble
+        ///Invulnérable
+        ///1-destructible
+        ///Croisade
+        ///Roc cosse
+        ///Roc carapace
+        ///Roc d&apos;Aura
+        ///Roc mortel
+        ///Roc sacré
+        ///Roc flamboyant
+        ///Roc Météore
+        ///Roc Ultima
+        ///ChocoLégume
+        ///Golgotha
+        ///Pen Pal
+        ///Red Kross
+        ///Zoologie
+        ///Saindoux
+        ///Potion GF
+        ///Potion GF +
+        ///Mégapotion GF
+        ///Sel marin
+        ///Carte baptême
+        ///Décapaciteur
+        ///Livret HP-A
+        ///Livret Vgr-A
+        ///Livret Dfs- [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ItemsListFr {
+            get {
+                return ResourceManager.GetString("ItemsListFr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -
+        ///Pozione
+        ///Pozione+
+        ///Granpozione
+        ///Granpozione+
+        ///Extrapozione
+        ///Megapozione
+        ///Coda di Fenice
+        ///Megafenice
+        ///Elisir
+        ///Megalisir
+        ///Antidoto
+        ///Ago Dorato
+        ///Collirio
+        ///Erba dell&apos;Eco
+        ///Acquasanta
+        ///Panacea
+        ///Panacea+
+        ///Med dell&apos;Eroe β
+        ///Med dell&apos;Eroe
+        ///Med del Mago β
+        ///Med del Mago
+        ///Gemma Shell
+        ///Gemma Protect
+        ///Gemma Aura
+        ///Gemma Death
+        ///Gemma Holy
+        ///Gemma Flare
+        ///Gemma Meteor
+        ///Gemma Ultima
+        ///Erba Ghisal
+        ///Piuma di Fenice
+        ///Superamico
+        ///Tenda
+        ///Cuccia
+        ///Cottage
+        ///Pozione G
+        ///Granpozione G
+        ///Megapozione G
+        ///Rivitalizzatore G
+        ///Carta d&apos;Identità        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ItemsListIt {
+            get {
+                return ResourceManager.GetString("ItemsListIt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap revolver {
@@ -127,6 +388,211 @@ namespace JunkShop.Properties {
             get {
                 object obj = ResourceManager.GetObject("SF_Slapstick_Comic_Oblique", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revolver
+        ///Shear Trigger
+        ///Cutting Trigger
+        ///Flame Saber
+        ///Twin Lance
+        ///Punishment
+        ///Lion Heart
+        ///Metal Knuckle
+        ///Maverick
+        ///Gauntlet
+        ///Ehrgeiz
+        ///Valiant
+        ///Ulysses
+        ///Bismark
+        ///Exeter
+        ///Chain Whip
+        ///Slaying Tail
+        ///Red Scorpion
+        ///Save the Queen
+        ///Pinwheel
+        ///Valkyrie
+        ///Rising Sun
+        ///Cardinal
+        ///Shooting Star
+        ///Flail
+        ///Morning Star
+        ///Crescent Wish
+        ///Strange Vision
+        ///Hyperion
+        ///None
+        ///Machine Gun
+        ///Katal
+        ///Harpoon.
+        /// </summary>
+        internal static string WeaponsListDe {
+            get {
+                return ResourceManager.GetString("WeaponsListDe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revolver
+        ///Shear Trigger
+        ///Cutting Trigger
+        ///Flame Saber
+        ///Twin Lance
+        ///Punishment
+        ///Lion Heart
+        ///Metal Knuckle
+        ///Maverick
+        ///Gauntlet
+        ///Ehrgeiz
+        ///Valiant
+        ///Ulysses
+        ///Bismark
+        ///Exeter
+        ///Chain Whip
+        ///Slaying Tail
+        ///Red Scorpion
+        ///Save the Queen
+        ///Pinwheel
+        ///Valkyrie
+        ///Rising Sun
+        ///Cardinal
+        ///Shooting Star
+        ///Flail
+        ///Morning Star
+        ///Crescent Wish
+        ///Strange Vision
+        ///Hyperion
+        ///None
+        ///Machine Gun
+        ///Katal
+        ///Harpoon.
+        /// </summary>
+        internal static string WeaponsListEn {
+            get {
+                return ResourceManager.GetString("WeaponsListEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revolver
+        ///Shear Trigger
+        ///Cutting Trigger
+        ///Flame Saber
+        ///Twin Lance
+        ///Punishment
+        ///Lion Heart
+        ///Metal Knuckle
+        ///Maverick
+        ///Gauntlet
+        ///Ehrgeiz
+        ///Valiant
+        ///Ulysses
+        ///Bismark
+        ///Exeter
+        ///Chain Whip
+        ///Slaying Tail
+        ///Red Scorpion
+        ///Save the Queen
+        ///Pinwheel
+        ///Valkyrie
+        ///Rising Sun
+        ///Cardinal
+        ///Shooting Star
+        ///Flail
+        ///Morning Star
+        ///Crescent Wish
+        ///Strange Vision
+        ///Hyperion
+        ///None
+        ///Machine Gun
+        ///Katal
+        ///Harpoon.
+        /// </summary>
+        internal static string WeaponsListEs {
+            get {
+                return ResourceManager.GetString("WeaponsListEs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pistolame
+        ///Nacre Blade
+        ///Dragon Blade
+        ///Sabreur
+        ///Katana
+        ///Kendo
+        ///Lionheart
+        ///Metal Gloves
+        ///Maverick
+        ///Gauntlets
+        ///Ehrgeiz
+        ///W.W.West
+        ///Roosevelt
+        ///Bertha
+        ///Steel Gun
+        ///Gibet
+        ///Totally S.M.
+        ///Red Scorpio
+        ///Smiley
+        ///Rotator
+        ///Walkyrie
+        ///Ninja Sun
+        ///Ptérodactyle
+        ///Tronçonneur
+        ///Nunchak Red
+        ///Nunchak Blue
+        ///Islam Star
+        ///Sagaie
+        ///Hyperion
+        ///Nada
+        ///Kalachnikov
+        ///Katal
+        ///Harpoon.
+        /// </summary>
+        internal static string WeaponsListFr {
+            get {
+                return ResourceManager.GetString("WeaponsListFr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revolver
+        ///Kastlet
+        ///Cutting Trigger
+        ///Flame Tank
+        ///Twin Lance
+        ///Crime &amp; Penalty
+        ///Lion Heart
+        ///Metal Knuckle
+        ///Maverick
+        ///Gauntlet
+        ///Ehrgeiz
+        ///Valiant
+        ///Ulysses
+        ///Bismark
+        ///Exeter
+        ///Chain Whip
+        ///Slaying Tail
+        ///Red Scorpion
+        ///Save the Queen
+        ///Boomerfriz
+        ///Valkyrie
+        ///Rising Sun
+        ///Cardinal
+        ///Shooting Star
+        ///Flail
+        ///Morning Star
+        ///Crescent Wish
+        ///Strange Vision
+        ///Hyperion
+        ///None
+        ///Machine Gun
+        ///Katal
+        ///Harpoon.
+        /// </summary>
+        internal static string WeaponsListIt {
+            get {
+                return ResourceManager.GetString("WeaponsListIt", resourceCulture);
             }
         }
     }

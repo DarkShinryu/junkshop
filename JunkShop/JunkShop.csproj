@@ -55,17 +55,38 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListtBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NumericUpDownG.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JunkShopWorker.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.de.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.en.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.es.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.fr.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.it.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
@@ -105,6 +126,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Information-icon.png" />
+    <None Include="Resources\ItemsListEn.txt" />
+    <None Include="Resources\WeaponsListEn.txt" />
+    <None Include="Resources\WeaponsListFr.txt" />
+    <None Include="Resources\ItemsListFr.txt" />
+    <None Include="Resources\WeaponsListIt.txt" />
+    <None Include="Resources\ItemsListIt.txt" />
+    <None Include="Resources\ItemsListDe.txt" />
+    <None Include="Resources\ItemsListEs.txt" />
+    <None Include="Resources\WeaponsListDe.txt" />
+    <None Include="Resources\WeaponsListEs.txt" />
     <Content Include="revolver.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
